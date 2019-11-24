@@ -1,0 +1,7 @@
+
+
+###> symfony/webpack-encore-pack ###
+/my-app/node_modules/
+/my-app/public/build/
+npm-debug.log
+
