@@ -8,13 +8,13 @@ export const parserConfiguration = {
             list: {
                 url: "https://j4l.com/api/v4/chat/online/list/?start={offset}&count={page}",
                 fullList: false,
-                offset: function (list, step = 9, page = 1) {
+                offset: function (list, step = 12, page = 1) {
                     return list.length
                 },
-                page: function (list, step = 9, page = 1) {
+                page: function (list, step = 12, page = 1) {
                     return step;
                 },
-                step: 9,
+                step: 12,
                 listParam: 'data'
             }
             
@@ -29,10 +29,67 @@ export const parserConfiguration = {
             },
             chat: {
                 method: 'AJAX',
+                dataType: 'json',
+                contentType:'application/json',
                 requestMethod: 'POST',
                 url : location.protocol + "\x2f\x2f" + location.hostname + "/api/v4/chat/"+"{id}"+"/message/send/",
                 params: {
+                    inputTextParam: {
+                        name: 'text',
+                    },
                     text: '',
+                },
+                interval: 5000,
+                messagesPerMinute: (interval) => {
+                    return interval + Math.random() * 5000;
+                }
+            }
+        }
+    },
+
+    svadba: {
+        filters: {
+            mail: ['age', 'online'],
+            chat: ['age', 'online']
+        },
+        actions: {
+            list: {
+                url: "https://j4l.com/api/v4/chat/online/list/?start={offset}&count={page}",
+                fullList: false,
+                offset: function (list, step = 12, page = 1) {
+                    return list.length
+                },
+                page: function (list, step = 12, page = 1) {
+                    return step;
+                },
+                step: 12,
+                listParam: 'data'
+            }
+
+        },
+        methods: {
+            mail: {
+                method: 'AJAX',
+                url: '',
+                params: {
+
+                }
+            },
+            chat: {
+                method: 'AJAX',
+                dataType: 'json',
+                contentType:'application/json',
+                requestMethod: 'POST',
+                url : location.protocol + "\x2f\x2f" + location.hostname + "/api/v4/chat/"+"{id}"+"/message/send/",
+                params: {
+                    inputTextParam: {
+                        name: 'text',
+                    },
+                    text: '',
+                },
+                interval: 5000,
+                messagesPerMinute: (interval) => {
+                    return interval + Math.random() * 5000;
                 }
             }
         }

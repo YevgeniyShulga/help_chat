@@ -16,7 +16,7 @@ export const senderReducer = (state = initialState, action) => {
             return {...state, currentSite: getActiveSite()}
 
         case types.SET_TEXT_TO_SEND:
-            return {...state, textToSend: action.payload}
+            return {...state, textToSend: action.payload};
 
         default: return state;
     }

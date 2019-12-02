@@ -11,17 +11,19 @@ class WebViewHandler
         let webviews = $('webview').get();
         console.log(webviews);
         webviews.forEach((current) => {
-            console.log(current)
+            console.log(current);
             current.addEventListener('loadcommit', (e) => {
+
                 console.log(e);
-                console.log(current)
+                console.log(current);
                 WebViewHandler.removeAllTargetBlank(current);
-                current.executeScript({file: "/embeded/dist/bundle.js"})
-                current.executeScript({code: "console.log(window.location.href)"})
+                current.executeScript({file: "/embeded/dist/bundle.js"});
+                current.executeScript({code: "console.log(window.location.href)"});
                 let id = current.id;
                 let str = PATTERN_ACCOUNT + ' ' + PATTERN_SITE;
                 let frameNumber = id.charAt(str.length);
                 console.log(config[frameNumber] ,config[frameNumber].onlineSender, config[frameNumber].onlineSender.content, frameNumber)
+
             })
         })
     }

@@ -4,12 +4,14 @@ import {getActiveSite} from "../utils/functions";
 export const initialState = {
     onlineList: [],
     closed: false,
+    sendingStarted: false,
     mail: {
         alreadyReceived: [],
     },
     chat: {
         alreadyReceived: [],
-    }
+    },
+    type: 'chat',
     
 };
 
@@ -20,12 +22,21 @@ export const chatReducer = (state = initialState, action) => {
         case types.ADD_USERS:
             let newState = state;
             if (action.payload.length > 0) {
-                let users = state.onlineList.concat(action.payload)
+                let users = state.onlineList.concat(action.payload);
                 newState = {...state, onlineList: users}
             } else {
                 newState = {...state, closed: true}
             }
-            return newState
+            return newState;
+
+        case types.START_SENDING:
+            return {...state, sendingStarted: true};
+
+        case types.ADD_USER_TO_RECEIVED:
+            let users = state[state.type].alreadyReceived;
+            users.push(action.payload);
+            state[state.type].alreadyReceived = users;
+            return state;
 
         default: return state;
     }

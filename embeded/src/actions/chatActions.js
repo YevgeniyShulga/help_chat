@@ -8,3 +8,20 @@ export const addUsers = (userList) => {
         })
     }
 }
+
+export const addUserToReceived = (id) => {
+    return (dispatch) => {
+        dispatch({
+            type: type.ADD_USER_TO_RECEIVED,
+            payload: id
+        })
+    }
+}
+
+export const startSending = () => {
+    return (dispatch) => {
+        dispatch({
+            type: type.START_SENDING,
+        })
+    }
+}

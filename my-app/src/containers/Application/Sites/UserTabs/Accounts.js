@@ -47,7 +47,7 @@ class Accounts extends Component {
             //         run_at: "document_end"
             //     },])
 
-            let webv = <WebView id={'account' + elem.id + 'site' + site.id} src={site.url} style={{width:'100%', height:'500px'}} name={'Parser'} partition={site.url + elem.id} nodeintegrationinsubframes />;
+            let webv = <WebView id={'account' + elem.id + 'site' + site.id} src={site.url} style={{width:'100%', height:'1500px'}} name={'Parser'} partition={'persist:' + site.name + ' ' + 'Girl ' + elem.id} nodeintegrationinsubframes />;
 
             return (
                 webv

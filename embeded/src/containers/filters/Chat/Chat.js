@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux'
 //import { rootStore } from './store/index';
 import {getFilter, getCallback} from "../../../utils/functions";
-import {setAgeRange, setTextToSend} from "./../../../actions/parserActions";
+import {setAgeRange, setTextToSend } from "./../../../actions/parserActions";
+import {startSending } from "./../../../actions/chatActions";
 import {TextField, Grid, Paper, withStyles, Typography} from "@material-ui/core";
 import SendIcon from '@material-ui/icons/Send';
 import Fab from '@material-ui/core/Fab';
@@ -53,10 +54,10 @@ class Chat extends Component {
                     <Typography  variant="h6" noWrap>
                         Начать рассылку
                     </Typography>
-                    <Fab style={{marginLeft: '20px', width:"36px", height:"30px"}} color="primary" aria-label="Send message">
+                    <Fab style={{marginLeft: '20px', width:"36px", height:"30px"}} color="primary" aria-label="Send message" onClick={() => this.props.startSending()}>
                         <SendIcon />
                     </Fab>
-                    {this.props.site && <Sender/>}
+                    {this.props.site && <Sender />}
                 </Grid>
             </Grid>
             </Paper>
@@ -67,15 +68,17 @@ class Chat extends Component {
 const mapStateToProps = store => {
     return {
         site: store.sender.currentSite,
-        sender: store.sender.currentSender
+        sender: store.sender.currentSender,
+
     }
-}
+};
 
 const mapDispatchToProps = (dispatch) => {
     return {
         setAgeRange: (range) => dispatch(setAgeRange(range)),
-        setTextToSend: (text) => dispatch(setTextToSend(text))
+        setTextToSend: (text) => dispatch(setTextToSend(text)),
+        startSending: () => dispatch(startSending()),
     }
-}
+};
 
 export default withStyles(styles)(connect(mapStateToProps, mapDispatchToProps)(Chat))

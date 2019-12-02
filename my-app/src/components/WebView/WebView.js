@@ -3,7 +3,6 @@
 import React, { Component} from 'react'
 import * as format from '../../utils/format'
 
-import each from 'underline'
 import WebViewHandler from "../../utils/WebViewHandler";
 
 const EVENTS = [
@@ -39,18 +38,21 @@ export class WebView extends Component {
     }
 
     componentDidMount () {
-        const node = this.refs.webview
+        const node = this.refs.webview;
 
-        console.log(document.getElementsByTagName('webview')[0])
+        console.log(document.getElementsByTagName('webview')[0]);
 
         
-        this._bindEvents(node)
-        this._assignMethods(node)
+        this._bindEvents(node);
+        this._assignMethods(node);
 
-        let handler = new WebViewHandler();
-        handler.addContentToWebViews();
 
-        this.setState({loaded: true, webview: node})
+        if (!this.state.loaded) {
+            let handler = new WebViewHandler();
+            handler.addContentToWebViews();
+            this.setState({loaded: true, webview: node})
+        }
+
     }
 
     render () {
