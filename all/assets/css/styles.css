@@ -1,0 +1,43 @@
+body {
+	padding: 0;
+	margin: 0;
+	background: #E5E5E5;
+}
+#chat-widget-logo {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 99;
+	background: #fff;
+	padding: 30px;
+}
+#chat-widget-logo a {
+	width: 120px;
+	display: block;
+}
+#chat-widget-logo a img {
+	max-width: 100%;
+	height: auto;
+	vertical-align: top;
+}
+.chat-widget-wrap {
+	display: 0;
+	position: absolute;
+	top: 5vw;
+	right: 0;
+	display: none;
+	cursor: all-scroll;
+	border: 10px solid transparent;
+	border-radius: 20px;
+	overflow: hidden;
+	width: 711px;
+	height: 753px;
+	
+}
+.chat-widget-wrap.show {
+	display: block;
+}
+.ui-draggable-dragging iframe {
+	pointer-events: none;
+	
+}

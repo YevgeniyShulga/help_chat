@@ -1,0 +1,9 @@
+#sparner { height: 130px; border-bottom: solid 1px #D8D8D8; position: fixed; left: 0; right: 150px; bottom: 0; z-index:9999; background:#F7F7F7}
+
+#sparner table { border:1px solid #d8d8d8; border-collapse: collapse; font-size: 12px; background:#c0d7fd; width:100% }
+#sparner td { text-align:center; }
+#black { max-width:100px; }
+#sparner textarea { border:solid 1px #D8D8D8; font-family: arial; width:100%; }
+
+#td3 { margin-left:50px; }
+#info { font-weight:bold; width:65px; text-align:center; }

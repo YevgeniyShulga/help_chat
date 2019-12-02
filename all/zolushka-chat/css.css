@@ -1,0 +1,27 @@
+.messageBox, #help, #select, #run, #info, #text-translate, #black, #bp, #bm, #bpid, #remchl, #age, #v2-label { position:absolute; }
+
+#sparner{ height: 80px; border-bottom: solid 1px #D8D8D8;position: fixed;left: 0;right: 250px;top: 0; z-index:9999; background:#F7F7F7;}
+.messageBox { left:0; top:4px; width:400px; padding:5px; background:#c0d7fd;}
+.messageBox:hover { background:#b2c8ed;}
+#textarea { margin:0; border:solid 1px #D8D8D8; font-family: arial; width:395px; height:100%; }
+#help { top:5px; left:415px; width:30px; height:42px; }
+#text-translate { top:25px; left:840px; }
+#v2-label { top:26px; left:880px; }
+#select { top:4px; left:450px; }
+#run { top:25px; left:450px; }
+#info { top:30px; left:700px; size:20px; font-weight:bold; display:none; }
+#age { top:25px; left:500px; }
+#black { top:4px; left:680px; }
+#bp { top:3px; left:865px; }
+#bm { top:3px; left:840px; }
+#bpid { top:3px; left:800px; }
+#remchl { top:3px; left:890px; }
+
+.error {
+	display:block;
+	border:solid 1px #E89B88;
+	color:#000;
+	background:#FFEFE8;
+	padding:3px;
+	font-weight:bold;
+}

@@ -131,6 +131,25 @@ class DenseAppBar extends  Component{
         };
     }
 
+    componentDidMount() {
+        console.log(document.getElementsByTagName('webview'))
+        let elems = document.getElementsByTagName('webview');
+        let f = () => {
+            setInterval(() => document.cookie, 1000);
+        }
+        // if (elems.length > 0) {
+        //     elems[0].addEventListener('contentload', function() {
+        //         elems[0].executeScript({ code: f.toString() }, function (res) {
+        //             console.log(res);
+        //         })
+        //     });
+        // }
+        if (elems.length > 0) {
+            
+        }
+
+    }
+
     render() {
         const {classes} = this.props;
 
@@ -154,6 +173,28 @@ class DenseAppBar extends  Component{
             this.setState({anchorEl: null});
         };
 
+        const AddButtons = () => {
+            return ( <div style={{display : 'inherit'}}>
+                <Fab style={{marginLeft: '20px', width:"36px", height:"30px"}} color="secondary" aria-label="Add Site" onClick={handleClick}>
+                    <AddIcon />
+                </Fab>
+                <Typography variant="h6" noWrap>
+                    Open one more site
+                </Typography>
+
+
+                <Fab style={{marginLeft: '20px', width:"36px", height:"30px"}} color="primary" aria-label="Add Site" onClick={() => this.props.addUser(this.props.currentSite, this.props.newUser)}>
+                    <AddIcon />
+                </Fab>
+                <Typography variant="h6" noWrap>
+                    Add user
+                </Typography>
+            </div>
+                    )
+            }
+
+
+
         return (
             <div className={classes.root}>
                 <CssBaseline />
@@ -172,15 +213,17 @@ class DenseAppBar extends  Component{
                             className={clsx(classes.menuButton, open && classes.hide)}
                         >
                             <MenuIcon />
+
                         </IconButton>
+
+
                         <img src={'/my-app/build/logo.png'} alt={'help-chat image'} className={classes.logo}/>
                         <Typography variant="h6" noWrap>
                             HELP-CHAT
                         </Typography>
 
-                        <Fab style={{marginLeft: '20px', width:"36px", height:"30px"}} color="secondary" aria-label="Add Site" onClick={handleClick}>
-                            <AddIcon />
-                        </Fab>
+                        {this.props.addButtons && AddButtons()}
+
                         <Menu
                             id="simple-menu"
                             anchorEl={anchorEl}

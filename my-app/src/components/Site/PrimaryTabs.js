@@ -49,24 +49,26 @@ const useStyles = makeStyles(theme => ({
 
 export default function ScrollableTabsButtonAuto(props) {
     const classes = useStyles();
-    const [value, setValue] = React.useState(props.typePanel + props.tabs[0].props.id);
+    const [value, setValue] = React.useState();
+    console.log(props);
 
     const handleChange = (event, newValue) => {
+        console.log(newValue)
         setValue(newValue);
     };
 
     let tabPanels = props.tabs.map((elem) => {
         return (
-            <TabPanel value={value} index={props.typePanel + elem.props.id} key={props.typePanel + elem.props.id}>
+            <TabPanel value={value} index={props.typePanel + elem.props.id + props.ident} key={props.typePanel + elem.props.id + props.ident}>
                 {elem}
             </TabPanel>
         );
 
     });
     let labels = props.tabs.map(function (elem) {
-
+        console.log(elem)
         return (
-            <Tab value={props.typePanel + elem.props.id} label={elem.props.name} {...a11yProps(props.typePanel + elem.props.id)} key={props.typePanel + elem.props.name } />
+            <Tab value={props.typePanel + elem.props.id + props.ident} label={elem.props.name} {...a11yProps(props.typePanel + elem.props.id + props.ident)} key={props.typePanel + elem.props.name  + props.ident} />
         );
     })
 

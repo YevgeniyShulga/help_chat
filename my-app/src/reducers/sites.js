@@ -24,7 +24,7 @@ export const siteReducer = (state = initialState, action) => {
             return {...state, addedSites: sites, users: users, activeTotal: sites.length};
 
         case type.TYPE_SET_ACTIVE_SITE :
-            return {...state, currentSite:true};
+            return {...state, currentSite: action.payload};
 
         case type.TYPE_SET_CHOSEN_TYPE :
             return {...state, chosen: action.payload};
@@ -40,7 +40,9 @@ export const siteReducer = (state = initialState, action) => {
             return {
                 ...state,
                 users: updatedUsers,
-                accountsTotal: updatedUsers.length
+                accountsTotal: updatedUsers.reduce(function (acum, curVal) {
+                    return acum + curVal.length
+                }, 0)
             };
 
         case type.TYPE_SET_ACTIVE_USER :

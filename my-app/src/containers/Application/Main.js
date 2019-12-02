@@ -13,6 +13,8 @@ import Sites from "./Sites/SiteTabs/Sites";
 import RangeSlider from "../../components/Filters/Range";
 import Selects from "../../components/Filters/Selects";
 import {TextField} from "@material-ui/core";
+import Divider from '@material-ui/core/Divider';
+
 
 // Need jQuery? Install it with "yarn add jquery", then uncomment to require it.
 // const $ = require('jquery');
@@ -29,24 +31,15 @@ class Main extends Component {
 
     render() {
         console.log(this.props)
+        const newUser = {id: this.props.users[this.props.currentSite.id].length + 1, name: 'Girl' + this.props.users[this.props.currentSite.id].length + 1};
+
 
         return (
             <div>
-                <DenseAppBar withFilters={true} siteHandler={this.addSiteTo}/>
+                <DenseAppBar addButtons={true} currentSite={this.props.currentSite} withFilters={true} siteHandler={this.addSiteTo} newUser={newUser} addUser={this.props.addUser}/>
                 <Grid container>
-                    <Grid item xl={3} xs={3} md={3}>
-                        <Switch
-                            checked={true}
-                            // onChange={handleChange('checkedB')}
-                            value="checkedB"
-                            color="primary"
-                            inputProps={{ 'aria-label': 'primary checkbox' }}
-                        />
-                        <RangeSlider/>
-                        <TextField id="outlined-basic" label="Outlined" variant="outlined" />
-                        <Selects />
-                    </Grid>
-                    <Grid item xl={9} xs={9} md={9}>
+
+                    <Grid item xl={12} xs={12} md={12}>
                         <Sites />
                     </Grid>
                 </Grid>
@@ -60,7 +53,15 @@ const mapStateToProps = store => {
     return {
         users: store.sites.users,
         sites: store.sites.addedSites,
+        currentSite: store.sites.currentSite,
+        accountsTotal: store.sites.accountsTotal,
     };
 }
 
-export default Main
+const mapDispatchToProps = dispatch => {
+    return {
+        addUser: (site, user) => dispatch(addUser(site, user))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Main)

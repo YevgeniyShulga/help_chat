@@ -1,0 +1,6 @@
+#sparner { height:94px; position:fixed; right:0; top:0; z-index:9999; font-size:12px; width:106px; overflow:hidden;}
+#sparner input { cursor:pointer; margin-top:30px; }
+#sparner .logo { display:inline-block; float:left; }
+#sparner.sparnet:hover { width:100%;  }
+#sparner:hover { overflow:visible; background:#F7F7F7; border-bottom: solid 1px #D8D8D8; }
+#sparner:hover .logo { display:none; }

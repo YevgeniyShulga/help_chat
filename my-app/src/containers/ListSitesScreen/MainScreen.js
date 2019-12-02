@@ -17,10 +17,13 @@ console.log(siteList);
 class MainScreen extends Component {
 
     render() {
+
+        const newUser = {}
+
         return (
 
             <div>
-                <DenseAppBar  />
+                <DenseAppBar addButtons={false}/>
                 <PortalsList />
                 {/*<BottomLinks/>*/}
             </div>
@@ -30,7 +33,11 @@ class MainScreen extends Component {
 
 
 const mapStateToProps = store => {
-    return {};
+    return {
+
+    };
 }
+
+
 
 export default MainScreen;

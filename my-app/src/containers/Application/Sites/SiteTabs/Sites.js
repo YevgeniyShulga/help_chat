@@ -25,7 +25,7 @@ class Sites extends Component {
 
         return (
             <div>
-                <PrimaryTabs tabs={sites} typePanel={'site'}/>
+                <PrimaryTabs tabs={sites} typePanel={'site'} ident={'site'}/>
             </div>
         );
     }

@@ -1,0 +1,10 @@
+#spamer { height: 130px; border-bottom: solid 1px #D8D8D8; position: fixed; left: 0; right: 360px; bottom: 0; z-index:9999; background:#F7F7F7 url("//chatplugin.ru/svadba12/images/logo.png") center bottom no-repeat; }
+
+#spamer table { border:1px solid #d8d8d8; border-collapse: collapse; font-size: 12px; background:#c0d7fd; width:100% }
+#spamer td { text-align:center; }
+#black { max-width:100px; }
+#spamer textarea { border:solid 1px #D8D8D8; font-family: arial; width:100%; height:50px; }
+#spamer input { padding:1px 6px; }
+
+#td3 { margin-left:50px; }
+#info { font-weight:bold; width:55px; text-align:center; }

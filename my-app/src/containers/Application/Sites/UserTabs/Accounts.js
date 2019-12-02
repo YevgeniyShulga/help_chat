@@ -6,6 +6,8 @@ import {connect} from 'react-redux'
 import {setActiveUser} from "./../../../../actions/site"
 import Grid from "@material-ui/core/Grid"
 import PrimaryTabs from "../../../../components/Site/PrimaryTabs";
+import $ from 'jquery';
+import WebView from "../../../../components/WebView/WebView";
 
 // Need jQuery? Install it with "yarn add jquery", then uncomment to require it.
 // const $ = require('jquery');
@@ -24,8 +26,10 @@ class Accounts extends Component {
 
     componentDidUpdate(prevProps, prevState, snapshot) {
         if (prevProps.users.length !== this.props.users.length) {
-            this.setState({users: this.props.users})
+            this.setState({users: this.props.users});
+
         }
+
     }
 
     render() {
@@ -34,14 +38,25 @@ class Accounts extends Component {
 
 
         let views = accountsTotal > 0 && users[site.id].map(function (elem) {
+            // let webview = $("<webview id='" + elem.id + "' src='" + site.url + "' style='width:100%, height:500px' name='" + elem.name + "' partition='" + site.url + elem.id + "'></webview>").get();
+            // webview.addContentScripts([
+            //     {
+            //         css: [ "/all/jump4love-chat/css.css" ],
+            //         js: [ "/all/jquery.js", "/all/names.js", "/all/jump4love-chat/include-3.js", "/all/notification.js" ],
+            //         matches: [ "*://j4l.com/chat_v3*",  "*://*.j4l.com/chat_v3*", "http://ukrainiangirls.pw/*" ],
+            //         run_at: "document_end"
+            //     },])
+
+            let webv = <WebView id={'account' + elem.id + 'site' + site.id} src={site.url} style={{width:'100%', height:'500px'}} name={'Parser'} partition={site.url + elem.id} nodeintegrationinsubframes />;
+
             return (
-                <webview id={site.id} src={site.url} style={{width:'100%', height:'500px'}} name={elem.name}></webview>
+                webv
             );
         })
 
         return (
             <div>
-                <PrimaryTabs tabs={views} typePanel={'account'}/>
+                <PrimaryTabs tabs={views} typePanel={'account'} key={'accounts' + site.id} ident={'accounts' + site.id}/>
             </div>
         );
     }

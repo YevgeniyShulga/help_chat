@@ -1,0 +1,14 @@
+﻿#sparner { height: 235px; border-bottom: solid 1px #D8D8D8; position: fixed; left: 0; width: 300px; bottom: 0; z-index:9999; background:#F7F7F7; }
+
+#sparner-chat { border-bottom: solid 1px #D8D8D8; position: fixed; left: 0; width: 300px; bottom: 30px; z-index:9999; background:#F7F7F7; }
+
+#sparner-chat table { border:1px solid #d8d8d8; border-collapse: collapse; font-size: 12px; background:#c0d7fd; width:100% }
+#sparner-chat th, #sparner td { padding-top:5px; }
+#sparner-chat th { text-align:right; width:100px; }
+#sparner-chat td { text-align:left; padding-left:5px; }
+#sparner-chat input[type=button]{ padding-left:7px; padding-right:7px; padding-top:1px; padding-bottom:1px; }
+#sparner-chat select { width:100px; }
+#sparner-chat [type=number] { max-width:40px; }
+#sparner-chat .year { max-width:50px; }
+#info { font-weight:bold; }
+#tpls, #text  { width:100%; }

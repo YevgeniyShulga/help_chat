@@ -1,0 +1,22 @@
+#sparner { height:94px; position:fixed; left:0; top:0; z-index:9999; font-size:12px; width:106px; overflow:hidden;}
+#sparner .logo { display:inline-block; float:left; }
+#sparner:hover, #sparner.active { height:100px; width:100%; overflow:visible; background:#F7F7F7; border-bottom: solid 1px #D8D8D8; }
+#sparner:hover .logo, #sparner.active .logo { display:none; }
+
+#sparner-pin { width:30px; cursor:pointer; }
+
+#sparner table { border:1px solid #d8d8d8; border-collapse: collapse; font-size: 12px; background:#c0d7fd; width:100% }
+#sparner td { text-align:center; vertical-align:middle; }
+#black { max-width:100px; }
+#sparner textarea { border:solid 1px #D8D8D8; font-family: arial; width:100%; }
+
+#td3 { margin-left:50px; }
+#s-info { font-weight:bold; width:55px; text-align:center; }
+.error {
+	display:block;
+	border:solid 1px #E89B88;
+	color:#000;
+	background:#FFEFE8;
+	padding:3px;
+	font-weight:bold;
+}
