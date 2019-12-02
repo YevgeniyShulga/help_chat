@@ -8,8 +8,10 @@
       "scripts": ["background.js"]
     }
   },
-  "permissions": ["fullscreen", "alwaysOnTopWindows", "http://news.google.com/", "webview", "alwaysOnTopWindows", "storage", "fullscreen" ],
-  "icons": { "16": "my-app/public/logo.png",
+  "permissions": ["fullscreen", "alwaysOnTopWindows", "http://*/", "https://*/", "webview", "alwaysOnTopWindows", "storage", "fullscreen" ],
+  "icons": {
+    "16": "my-app/public/logo.png",
     "48": "my-app/public/logo.png",
-    "128": "my-app/public/logo.png" }
+    "128": "my-app/public/logo.png"
+  }
 }

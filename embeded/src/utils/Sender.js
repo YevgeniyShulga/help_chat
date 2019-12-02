@@ -33,28 +33,32 @@ class Sender extends Component
             console.log(needToBeSent.length);
             let user = needToBeSent[0];
 
-            if (user.sent) {
-                return ;
+            if (!user.sent) {
+                user.sent = true;
+                let params = {};
+
+                params[site.methods.chat.params.inputTextParam.name] = textToSend;
+                $.ajax({
+                    url: site.methods.chat.url.replace('{id}', user.id),
+                    dataType: site.methods.chat.dataType,
+                    contentType: site.methods.chat.contentType,
+                    method: site.methods.chat.requestMethod,
+                    data: JSON.stringify(params),
+                    success: (data) => {
+                        if (data.result === 'ok' || data.result === 'waitAccept')
+                            addUserToReceived(user.id);
+                    },
+                    error: () => {
+                        console.log('There was an error');
+                    },
+                    complete: function () {
+                        console.log('Iteration is complete');
+                    },
+
+                })
+            } else {
+                addUserToReceived(user.id);
             }
-            user.sent = true;
-            let params = {};
-
-            params[site.methods.chat.params.inputTextParam.name] = textToSend;
-            $.ajax({
-                url: site.methods.chat.url.replace('{id}', user.id),
-                dataType: site.methods.chat.dataType,
-                contentType: site.methods.chat.contentType,
-                method: site.methods.chat.requestMethod,
-                data: JSON.stringify(params),
-                success: (data) => {
-                    if (data.result === 'ok' || data.result === 'waitAccept')
-                    addUserToReceived(user.id);
-                },
-                error: () => {
-                    console.log('There was an error');
-                }
-
-            })
         }, 10000);
     }
 

@@ -19,13 +19,13 @@ class Sites extends Component {
         let {addedSites} = this.props;
         let sites = this.props.activeTotal > 0 && addedSites.map(function (elem) {
             return (
-                <Accounts site={elem} id={elem.id} name={elem.name}/>
+                <Accounts site={elem} id={elem.id} name={elem.name} style={{padding: 0}}/>
             );
         })
 
         return (
-            <div>
-                <PrimaryTabs tabs={sites} typePanel={'site'} ident={'site'}/>
+            <div style={{padding: 0}}>
+                <PrimaryTabs tabs={sites} typePanel={'site'} ident={'site'} style={{padding: 0}}/>
             </div>
         );
     }

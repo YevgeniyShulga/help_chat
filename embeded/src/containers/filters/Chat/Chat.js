@@ -48,6 +48,7 @@ class Chat extends Component {
                     label="Введите текст для отправки"
                     variant="outlined"
                     style={{marginLeft: '20px'}}
+                    rows={3}
                 />
                 </Grid>
                 <Grid item style={{ display: 'flex', marginLeft: '20px'}}>

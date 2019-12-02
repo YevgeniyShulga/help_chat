@@ -14,6 +14,7 @@ function TabPanel(props) {
     console.log(value, index)
     return (
         <Typography
+            style={{padding: 0}}
             component="div"
             role="tabpanel"
             hidden={value !== index}
@@ -21,7 +22,7 @@ function TabPanel(props) {
             aria-labelledby={`scrollable-auto-tab-${index}`}
             {...other}
         >
-            <Box p={3}>{children}</Box>
+            <Box>{children}</Box>
         </Typography>
     );
 }
@@ -44,6 +45,7 @@ const useStyles = makeStyles(theme => ({
         flexGrow: 1,
         width: '100%',
         backgroundColor: theme.palette.background.paper,
+        padding: 0
     },
 }));
 
@@ -59,7 +61,7 @@ export default function ScrollableTabsButtonAuto(props) {
 
     let tabPanels = props.tabs.map((elem) => {
         return (
-            <TabPanel value={value} index={props.typePanel + elem.props.id + props.ident} key={props.typePanel + elem.props.id + props.ident}>
+            <TabPanel style={{padding: 0}} value={value} index={props.typePanel + elem.props.id + props.ident} key={props.typePanel + elem.props.id + props.ident}>
                 {elem}
             </TabPanel>
         );
@@ -68,14 +70,15 @@ export default function ScrollableTabsButtonAuto(props) {
     let labels = props.tabs.map(function (elem) {
         console.log(elem)
         return (
-            <Tab value={props.typePanel + elem.props.id + props.ident} label={elem.props.name} {...a11yProps(props.typePanel + elem.props.id + props.ident)} key={props.typePanel + elem.props.name  + props.ident} />
+            <Tab style={{padding: 0}} value={props.typePanel + elem.props.id + props.ident} label={elem.props.name} {...a11yProps(props.typePanel + elem.props.id + props.ident)} key={props.typePanel + elem.props.name  + props.ident} />
         );
     })
 
     return (
-        <div className={classes.root}>
-            <AppBar position="static" color="default">
+        <div className={classes.root} style={{padding: 0}}>
+            <AppBar position="static" color="default" style={{padding: 0}}>
                 <Tabs
+                    style={{padding: 0}}
                     value={value}
                     onChange={handleChange}
                     indicatorColor="primary"
