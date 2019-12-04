@@ -10,7 +10,7 @@ import {connect} from 'react-redux'
 class Mail extends Component {
 
     render() {
-        
+        return null
     }
 }
 

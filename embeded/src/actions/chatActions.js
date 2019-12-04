@@ -25,3 +25,11 @@ export const startSending = () => {
         })
     }
 }
+
+export const activateSendingByTemplate = () => {
+    return (dispatch) => {
+        dispatch({
+            type: type.ACTIVATE_SENDING_BY_TEMPLATE,
+        })
+    }
+}

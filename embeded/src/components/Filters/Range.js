@@ -26,9 +26,9 @@ export default function Range(props) {
 
     return (
         <div className={classes.root}>
-            <Typography id="range-slider" gutterBottom>
+            <span id="range-slider" style={{marginBottom: '0px !important'}}>
                 Выберите возвраст
-            </Typography>
+            </span>
             <Slider
                 value={value}
                 onChange={handleChange}

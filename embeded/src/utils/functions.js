@@ -2,6 +2,7 @@ import React from 'react'
 import {availableSites} from "../constants/availableSites";
 import {parserConfiguration} from "../constants/parserConfig";
 import Range from "../components/Filters/Range";
+import MenuButton from "../components/Filters/MenuButton";
 
 export const getActiveSite = () => {
     let host = window.location.host;
@@ -16,10 +17,13 @@ export const getActiveSite = () => {
     return parserConfiguration[siteName];
 }
 
-export const getFilter = (filterName, callback) => {
+export const getFilter = (filterName, callback = ()=>{}) => {
     switch (filterName) {
         case 'age':
             return <Range updateState={callback}/>
+
+        case 'show_more':
+            return <MenuButton title="фильтры" additionalStyles={{width: 150}}/>
     }
 }
 

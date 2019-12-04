@@ -13,6 +13,6 @@ if (!document.getElementById('appHelpChat')){
 
     setTimeout(() => {
         ReactDOM.hydrate(<Provider store={rootStore}> <App /></Provider>, document.getElementById('appHelpChat'));
-    }, 5000);
+    }, 0);
 
 }

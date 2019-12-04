@@ -1,8 +1,8 @@
 export const parserConfiguration = {
     jump4love: {
         filters: {
-            mail: ['age', 'online'],
-            chat: ['age', 'online']
+            mail: ['age', 'online', 'show_more'],
+            chat: ['age', 'online', 'show_more']
         },
         actions: {
             list: {
@@ -97,8 +97,8 @@ export const parserConfiguration = {
 
     localhost: {
         filters: {
-            mail: ['age', 'online'],
-            chat: ['age', 'online']
+            mail: ['age', 'online', 'show_more'],
+            chat: ['age', 'online', 'show_more']
         },
         actions: {
             list: {

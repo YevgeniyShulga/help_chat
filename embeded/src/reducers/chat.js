@@ -10,8 +10,10 @@ export const initialState = {
     },
     chat: {
         alreadyReceived: [],
+        template: false
     },
     type: 'chat',
+
     
 };
 
@@ -32,11 +34,18 @@ export const chatReducer = (state = initialState, action) => {
         case types.START_SENDING:
             return {...state, sendingStarted: true};
 
+        case types.ACTIVATE_SENDING_BY_TEMPLATE:
+            let chatConfig = state.chat;
+            chatConfig.template = !state.chat.template;
+            return {...state, chat: chatConfig};
+
         case types.ADD_USER_TO_RECEIVED:
             let users = state[state.type].alreadyReceived;
             users.push(action.payload);
             state[state.type].alreadyReceived = users;
             return state;
+
+
 
         default: return state;
     }
